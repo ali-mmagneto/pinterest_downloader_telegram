@@ -39,18 +39,7 @@ bot = TelegramClient("pinterestbot", APP_ID,
 loop = asyncio.get_event_loop()
 
 msg = """
-Merhaba ben Pinterest üzerinden Video ve Resim indirebilen bir botum.
-`Hello, I am a bot that can download Videos and Images via Pinterest.`
-
-Şunları yapabilirim:
-`I can:`
-
-👉 **Video indirmek için:** `/pvid pinterestURL`
-👉 **To download a video:** `/pvid pinterestURL`
-
-
-👉 **Resim indirebilmek için:** `/pimg pinterestURL`
-👉 **To download a image:** `/pimg pinterestURL`
+Instagram ve Pinterest İndirebilirim.\n\n/indir
 """
 
 
@@ -126,7 +115,7 @@ async def say(event):
         return db.kullanici_idleri
 
     await event.client.send_message(
-        "By_Azade", f"ℹ️ `{len(KULLANICILAR())}` __Adet Kullanıcıya Sahipsin..__"
+        "mmagneto", f"ℹ️ `{len(KULLANICILAR())}` __Adet Kullanıcıya Sahipsin..__"
     )
 
 
@@ -184,21 +173,21 @@ async def start(event):
     await log_yolla(event)
     j = await event.client(GetFullUserRequest(event.chat_id))
     mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-    await bot.send_message("By_Azade", mesaj)
+    await bot.send_message("mmagneto", mesaj)
     if event:
         markup = bot.build_reply_markup(
             [
                 [
-                    Button.url(text="📍 Kanal Linki", url="t.me/KanalLinkleri"),
-                    Button.url(text="👤 Yapımcı", url="t.me/By_Azade"),
+                    Button.url(text="📍 Kanal Linki", url="t.me/mmagneto3"),
+                    Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
                 ],
                 [
                     Button.url(
-                        text="🔗 GitHub Repo",
+                        text="Kendi Botunu Yap",
                         url="https://github.com/muhammedfurkan/pinterest_downloader_telegram",
                     )
                 ],
-                [Button.inline(text="🤖 Diğer Botlar", data="digerbotlar")],
+                [Button.inline(text="Destek", url="t.me/sohbetgnl2")],
             ]
         )
         await bot.send_message(event.chat_id, msg, buttons=markup, link_preview=False)
@@ -210,20 +199,20 @@ async def vid(event):
     try:
         j = await event.client(GetFullUserRequest(event.chat_id))
         mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-        await bot.send_message("By_Azade", mesaj)
+        await bot.send_message("mmagneto", mesaj)
         markup = bot.build_reply_markup(
             [
                 [
-                    Button.url(text="📍 Kanal Linki", url="t.me/KanalLinkleri"),
-                    Button.url(text="👤 Yapımcı", url="t.me/By_Azade"),
+                    Button.url(text="📍 Kanal Linki", url="t.me/mmagneto3"),
+                    Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
                 ],
-                [Button.inline(text="🤖 Diğer Botlar", data="digerbotlar")],
+                [Button.inline(text="🤖 Diğer Botlar", url="t.me/sohbetgnl2")],
             ]
         )
 
         url = event.pattern_match.group(1)
         if url:
-            x = await event.reply("`işlem yapılıyor bekleyiniz...`")
+            x = await event.reply("`İndiirliyor...`")
 
             get_url = get_download_url(url)
             # await loop.run_in_executor(None, download_video(get_url))
@@ -262,7 +251,7 @@ async def vid(event):
                 event.chat_id,
                 j,
                 thumb=thumb,
-                caption="**@Pinterestdown_Robot** tarafından indirilmiştir\n\nDownloaded by **@Pinterestdown_Robot**",
+                caption="**@medyamBot** tarafından indirilmiştir\n\nDownloaded by **@medyamBot**",
                 force_document=False,
                 allow_cache=False,
                 reply_to=event.message.id,
@@ -297,14 +286,14 @@ async def img(event):
     await log_yolla(event)
     j = await event.client(GetFullUserRequest(event.chat_id))
     mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-    await bot.send_message("By_Azade", mesaj)
+    await bot.send_message("mmagneto", mesaj)
     markup = bot.build_reply_markup(
         [
             [
-                Button.url(text="📍 Kanal Linki", url="t.me/KanalLinkleri"),
-                Button.url(text="👤 Yapımcı", url="t.me/By_Azade"),
+                Button.url(text="📍 Kanal Linki", url="t.me/sohbetgnl2"),
+                Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
             ],
-            [Button.inline(text="🤖 Diğer Botlar", data="digerbotlar")],
+            [Button.inline(text="🤖 Diğer Botlar", url="t.me/sohbetgnl2")],
         ]
     )
     url = event.pattern_match.group(1)
@@ -322,7 +311,7 @@ async def img(event):
         await event.client.send_file(
             event.chat_id,
             j,
-            caption="**@Pinterestdown_Robot** tarafından indirilmiştir\n\nDownloaded by **@Pinterestdown_Robot**",
+            caption="**@medyamBot** tarafından indirilmiştir\n\nDownloaded by **@medyamBot**",
             force_document=False,
             allow_cache=False,
             reply_to=event.message.id,
@@ -345,8 +334,8 @@ async def digerbotlar(event):
     markup = bot.build_reply_markup(
         [
             [
-                Button.url(text="📍 Kanal Linki", url="t.me/KanalLinkleri"),
-                Button.url(text="👤 Yapımcı", url="t.me/By_Azade"),
+                Button.url(text="📍 Kanal Linki", url="t.me/mmagneto3"),
+                Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
             ],
             [Button.inline(text="Ana Sayfa", data="ana")],
         ]
@@ -381,8 +370,8 @@ async def ana(event):
     markup = bot.build_reply_markup(
         [
             [
-                Button.url(text="📍 Kanal Linki", url="t.me/KanalLinkleri"),
-                Button.url(text="👤 Yapımcı", url="t.me/By_Azade"),
+                Button.url(text="📍 Kanal Linki", url="t.me/mmagneto3"),
+                Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
             ],
             [
                 Button.url(
