@@ -170,10 +170,6 @@ async def duyuru(event):
 
 @bot.on(events.NewMessage(pattern="/start", func=lambda e: e.is_private))
 async def start(event):
-    await log_yolla(event)
-    j = await event.client(GetFullUserRequest(event.chat_id))
-    mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-    await bot.send_message("mmagneto", mesaj)
     if event:
         markup = bot.build_reply_markup(
             [
@@ -194,11 +190,6 @@ async def start(event):
 
 @bot.on(events.NewMessage(pattern="/pvid ?(.*)", func=lambda e: e.is_private))
 async def vid(event):
-    await log_yolla(event)
-    try:
-        j = await event.client(GetFullUserRequest(event.chat_id))
-        mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-        await bot.send_message("mmagneto", mesaj)
         markup = bot.build_reply_markup(
             [
                 [
