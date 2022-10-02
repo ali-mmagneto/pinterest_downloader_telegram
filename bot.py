@@ -471,7 +471,7 @@ async def progress(current, total, event, start, type_of_ps):
 def get_download_url(link):
     # Make request to website
     post_request = requests.post(
-        "https://snapinsta.app/#google_vignette", data={"url": link}
+        "https://en.savefrom.net/175/download-from-instagram", data={"url": link}
     )
 
     # Get content from post request
