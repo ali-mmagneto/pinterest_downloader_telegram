@@ -205,7 +205,7 @@ async def vid(event):
 
         url = event.pattern_match.group(1)
         if url:
-            x = await event.reply("`İndiirliyor...`")
+            x = await event.reply("`İndiriliyor...`")
 
             get_url = get_download_url(url)
             # await loop.run_in_executor(None, download_video(get_url))
@@ -244,7 +244,7 @@ async def vid(event):
                 event.chat_id,
                 j,
                 thumb=thumb,
-                caption="**@medyamBot** tarafından indirilmiştir\n\nDownloaded by **@medyamBot**",
+                caption="Downloaded by **@medyamBot**",
                 force_document=False,
                 allow_cache=False,
                 reply_to=event.message.id,
@@ -276,10 +276,6 @@ async def vid(event):
 
 @bot.on(events.NewMessage(pattern="/pimg ?(.*)", func=lambda e: e.is_private))
 async def img(event):
-    await log_yolla(event)
-    j = await event.client(GetFullUserRequest(event.chat_id))
-    mesaj = f"Gönderen [{j.user.first_name}](tg://user?id={event.chat_id})\nMesaj: {event.message.message}"
-    await bot.send_message("mmagneto", mesaj)
     markup = bot.build_reply_markup(
         [
             [
@@ -304,7 +300,7 @@ async def img(event):
         await event.client.send_file(
             event.chat_id,
             j,
-            caption="**@medyamBot** tarafından indirilmiştir\n\nDownloaded by **@medyamBot**",
+            caption="Downloaded by **@medyamBot**",
             force_document=False,
             allow_cache=False,
             reply_to=event.message.id,
