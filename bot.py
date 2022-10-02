@@ -184,8 +184,7 @@ async def start(event):
                 [
                     Button.url(
                         text="Kendi Botunu Yap",
-                        url="https://github.com/muhammedfurkan/pinterest_downloader_telegram",
-                    )
+                        url="https://github.com/muhammedfurkan/pinterest_downloader_telegram"),
                 ],
                 [Button.inline(text="Destek", url="t.me/sohbetgnl2")],
             ]
