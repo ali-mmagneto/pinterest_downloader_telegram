@@ -190,6 +190,7 @@ async def start(event):
 
 @bot.on(events.NewMessage(pattern="/pvid ?(.*)", func=lambda e: e.is_private))
 async def vid(event):
+    if event:
         markup = bot.build_reply_markup(
             [
                 [
