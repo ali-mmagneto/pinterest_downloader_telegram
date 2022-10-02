@@ -182,7 +182,9 @@ async def start(event):
                         text="Kendi Botunu Yap",
                         url="https://github.com/muhammedfurkan/pinterest_downloader_telegram"),
                 ],
-                [Button.inline(text="Destek", url="t.me/sohbetgnl2")],
+                [Button.url(
+                     text="Destek", 
+                     url="t.me/sohbetgnl2")],
             ]
         )
         await bot.send_message(event.chat_id, msg, buttons=markup, link_preview=False)
