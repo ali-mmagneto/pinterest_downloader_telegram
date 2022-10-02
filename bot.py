@@ -190,7 +190,7 @@ async def start(event):
         await bot.send_message(event.chat_id, msg, buttons=markup, link_preview=False)
 
 
-@bot.on(events.NewMessage(pattern="/pvid ?(.*)", func=lambda e: e.is_private))
+@bot.on(events.NewMessage(pattern="/indir ?(.*)", func=lambda e: e.is_private))
 async def vid(event):
     try:
         markup = bot.build_reply_markup(
