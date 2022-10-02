@@ -471,7 +471,7 @@ async def progress(current, total, event, start, type_of_ps):
 def get_download_url(link):
     # Make request to website
     post_request = requests.post(
-        "https://www.expertsphp.com/download.php", data={"url": link}
+        "https://igram.io/", data={"url": link}
     )
 
     # Get content from post request
