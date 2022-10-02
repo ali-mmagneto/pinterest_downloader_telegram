@@ -286,7 +286,7 @@ async def img(event):
                 Button.url(text="📍 Kanal Linki", url="t.me/sohbetgnl2"),
                 Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
             ],
-            [Button.inline(text="🤖 Diğer Botlar", url="t.me/sohbetgnl2")],
+            [Button.url(text="Destek", url="t.me/sohbetgnl2")],
         ]
     )
     url = event.pattern_match.group(1)
