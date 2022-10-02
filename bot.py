@@ -487,9 +487,9 @@ def download_video(url):
     if not os.path.isdir(TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     video_to_download = request.urlopen(url).read()
-    with open(TMP_DOWNLOAD_DIRECTORY + "pinterest_video.mp4", "wb") as video_stream:
+    with open(TMP_DOWNLOAD_DIRECTORY + "medyambotvid.mp4", "wb") as video_stream:
         video_stream.write(video_to_download)
-    return TMP_DOWNLOAD_DIRECTORY + "pinterest_video.mp4"
+    return TMP_DOWNLOAD_DIRECTORY + "medyambotvid.mp4"
 
 
 # Function to download image
@@ -497,9 +497,9 @@ def download_image(url):
     if not os.path.isdir(TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
     image_to_download = request.urlopen(url).read()
-    with open(TMP_DOWNLOAD_DIRECTORY + "pinterest_iamge.jpg", "wb") as photo_stream:
+    with open(TMP_DOWNLOAD_DIRECTORY + "medyambotimg.jpg", "wb") as photo_stream:
         photo_stream.write(image_to_download)
-    return TMP_DOWNLOAD_DIRECTORY + "pinterest_iamge.jpg"
+    return TMP_DOWNLOAD_DIRECTORY + "medyambotimg.jpg"
 
 
 bot.start()
