@@ -199,7 +199,7 @@ async def vid(event):
                     Button.url(text="📍 Kanal Linki", url="t.me/mmagneto3"),
                     Button.url(text="👤 Yapımcı", url="t.me/mmagneto"),
                 ],
-                [Button.inline(text="🤖 Diğer Botlar", url="t.me/sohbetgnl2")],
+                [Button.url(text="🤖 Diğer Botlar", url="t.me/sohbetgnl2")],
             ]
         )
 
