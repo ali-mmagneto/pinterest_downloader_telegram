@@ -255,7 +255,7 @@ async def vid(event):
                         w=width,
                         h=height,
                         round_message=False,
-                        supports_streaming=True,
+                        supports_streaming=False,
                     )
                 ],
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
